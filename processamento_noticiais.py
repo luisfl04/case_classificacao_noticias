@@ -1,5 +1,6 @@
 from coletagem_noticias import GerenciadorColetaNoticias
 import re
+import pandas as pd
 
 
 class ProcessadorNoticiais:
@@ -80,11 +81,23 @@ class ProcessadorNoticiais:
             return "negativo"
         else:
             return "neutro"
+        
+    def obter_df_noticiais(self):
+        """
+        Função que obtém a lista de noticiais classificadas e estrutura um data frame a partir desses dados:
+        """
+        dados_noticiais_classificadas = self.processar_noticias()
+        data_frame = pd.DataFrame(
+            data=dados_noticiais_classificadas,                       
+            columns=["titulo", "data", "link", "fonte", "classificacao"])
+        
+        return data_frame
+
 
 
 
 if __name__ == "__main__":
     processador = ProcessadorNoticiais()
-    processador.processar_noticias()
+    processador.construir_df_noticiais()
 
 

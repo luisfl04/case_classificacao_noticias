@@ -8,5 +8,6 @@
     2.3 -> Função principal que irá manipular os dados ->
         2.3.1 -> Criar regras de classificação das notíciais -> Ok
         2.3.2 -> Implementar lógica de classificação das notíciais -> Ok 
-        
+        2.3.3 -> Criar função que constrói um data frame a partir dos dados classificados -> Ok
+
      
