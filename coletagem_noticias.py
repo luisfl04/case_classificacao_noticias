@@ -1,8 +1,10 @@
 import requests
 import xml.etree.ElementTree as ET
 
-
 class GerenciadorColetaNoticias:
+    """
+    Objeto responsável pela busca e gerenciamento das noticiais.s
+    """
 
     def coletar_noticias(self, pesquisa) -> list:
         """
@@ -16,13 +18,12 @@ class GerenciadorColetaNoticias:
             if resposta.status_code != 200:
                 raise ValueError(f"Erro ao acessar feed RSS\nCodigo -> {resposta.status_code}")
             
-            # Convertendo resultado
+            # Convertendo resultado:
             root = ET.fromstring(resposta.content)
             noticias = []
 
-            
+            # Obtendo os dados das noticiais:
             for item in root.findall(".//item"):
-                print(item)
                 titulo = item.find("title").text
                 link = item.find("link").text
                 data = item.find("pubDate").text
@@ -31,16 +32,10 @@ class GerenciadorColetaNoticias:
                     "titulo": titulo,
                     "link": link,
                     "data": data,
-                    "descricao": descricao, 
+                    "descricao": descricao
                 })
-                
-                print(noticias)
+
+            # retornando número limitado de notícias:
+            return noticias[:15]
         except Exception as e:
             raise ValueError(f"Erro ao coletar as noticiais -> {e}")
-        
-if __name__ == "__main__":
-    gerenciador_coleta = GerenciadorColetaNoticias()
-    resultados = gerenciador_coleta.coletar_noticias("inteligência artificial piauí")
-    # for noticia in resultados:
-    #     print(f"{noticia}")
-    #     break

@@ -1,2 +1,3 @@
 1 - Coleta de dados -> 
-    1.1 -> Fazer request no endpoint de noticiais e obter XML de resultado -> 
+    1.1 -> Fazer request no endpoint de noticiais e obter XML de resultado -> Ok
+    1.2 -> Retornar lista de dicionários de forma organizada com as noticiais -> 
