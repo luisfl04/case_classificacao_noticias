@@ -1,5 +1,6 @@
 import requests
 import xml.etree.ElementTree as ET
+from bs4 import BeautifulSoup
 
 class GerenciadorColetaNoticias:
     """
@@ -27,15 +28,24 @@ class GerenciadorColetaNoticias:
                 titulo = item.find("title").text
                 link = item.find("link").text
                 data = item.find("pubDate").text
-                descricao = item.find("description").text
+                fonte = self.extrair_fonte(item.find("description").text)
                 noticias.append({
                     "titulo": titulo,
                     "link": link,
                     "data": data,
-                    "descricao": descricao
+                    "fonte": fonte,
                 })
 
             # retornando número limitado de notícias:
             return noticias[:15]
         except Exception as e:
             raise ValueError(f"Erro ao coletar as noticiais -> {e}")
+    
+    def extrair_fonte(self, descricao_html: str) -> str:
+        """
+        Extrai o campo '<font>' a partir do campo '<description>' obtido na notícia.
+        """
+            
+        arvore_elementos_hmtl = BeautifulSoup(descricao_html, "html.parser")
+        fonte = arvore_elementos_hmtl.find("font") 
+        return fonte.get_text(strip=True) if fonte else ""

@@ -1,3 +1,8 @@
-1 - Coleta de dados -> 
+1 - Coleta de dados -> Ok
     1.1 -> Fazer request no endpoint de noticiais e obter XML de resultado -> Ok
-    1.2 -> Retornar lista de dicionários de forma organizada com as noticiais -> 
+    1.2 -> Retornar lista de dicionários de forma organizada com as noticiais -> OK
+
+2 -> pré-processamento de noticias -> Ok 
+    2.1 -> Função que irá obter as noticiais do módulo auxiliar -> Ok 
+    2.2 -> Função auxiliar que irá receber texto e limpá-lo -> 
+    2.3 -> Função principal que irá manipular os dados ->
