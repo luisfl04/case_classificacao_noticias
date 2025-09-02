@@ -82,7 +82,7 @@ class ProcessadorNoticiais:
         else:
             return "neutro"
         
-    def obter_df_noticiais(self):
+    def obter_df_noticiais(self) -> object:
         """
         Função que obtém a lista de noticiais classificadas e estrutura um data frame a partir desses dados:
         """
@@ -93,11 +93,5 @@ class ProcessadorNoticiais:
         
         return data_frame
 
-
-
-
-if __name__ == "__main__":
-    processador = ProcessadorNoticiais()
-    processador.construir_df_noticiais()
 
 
