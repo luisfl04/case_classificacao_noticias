@@ -20,27 +20,27 @@ class GerenciadorColetaNoticias:
             root = ET.fromstring(resposta.content)
             noticias = []
 
-            print(root)
-
             
-            #     for item in root.findall(".//item"):
-            #         titulo = item.find("title").text
-            #         link = item.find("link").text
-            #         data = item.find("pubDate").text
-            #         descricao = item.find("description").text
-            #         noticias.append({
-            #             "titulo": titulo,
-            #             "link": link,
-            #             "data": data
-            #         })
+            for item in root.findall(".//item"):
+                print(item)
+                titulo = item.find("title").text
+                link = item.find("link").text
+                data = item.find("pubDate").text
+                descricao = item.find("description").text
+                noticias.append({
+                    "titulo": titulo,
+                    "link": link,
+                    "data": data,
+                    "descricao": descricao, 
+                })
                 
-            #     return noticias
+                print(noticias)
         except Exception as e:
             raise ValueError(f"Erro ao coletar as noticiais -> {e}")
         
 if __name__ == "__main__":
     gerenciador_coleta = GerenciadorColetaNoticias()
     resultados = gerenciador_coleta.coletar_noticias("inteligência artificial piauí")
-    for noticia in resultados:
-        print(f"{noticia}")
-        break
+    # for noticia in resultados:
+    #     print(f"{noticia}")
+    #     break
