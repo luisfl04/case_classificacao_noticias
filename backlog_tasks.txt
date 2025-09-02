@@ -1,9 +1,9 @@
 1 - Coleta de dados -> Ok
-    1.1 -> Fazer request no endpoint de noticiais e obter XML de resultado -> Ok
-    1.2 -> Retornar lista de dicionários de forma organizada com as noticiais -> OK
+    1.1 -> Fazer request no endpoint de noticias e obter XML de resultado -> Ok
+    1.2 -> Retornar lista de dicionários de forma organizada com as noticias -> OK
 
 2 -> pré-processamento de noticias -> Ok 
-    2.1 -> Função que irá obter as noticiais do módulo auxiliar -> Ok 
+    2.1 -> Função que irá obter as noticias do módulo auxiliar -> Ok 
     2.2 -> Função auxiliar que irá receber texto e limpá-lo -> Ok
     2.3 -> Função principal que irá manipular os dados ->
         2.3.1 -> Criar regras de classificação das notíciais -> Ok
@@ -12,7 +12,9 @@
 
 3 - Visualização do dashboard -> 
     3.1 -> Criar função que obtém o data frame e implementa um gráfico de pizza a partir da frequencia
-    dos valores de classificação -> 
+    dos valores de classificação -> Ok
+    3.2 -> Implementar nuvem de palavras com os termos mais frequentes nas noticias ->
+        3.2.1 -> Obter objeto apenas com os valores dos titulos ->  
 
 x -> Refinamento das implementações -> 
     x.1-> Implementar try/except em todas as funções

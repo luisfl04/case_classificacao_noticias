@@ -3,12 +3,12 @@ import re
 import pandas as pd
 
 
-class ProcessadorNoticiais:
+class ProcessadorNoticias:
     """
-    Módulo relacionado a manipulação e processamento das noticiais obtidas.
+    Módulo relacionado a manipulação e processamento das noticias obtidas.
     """
 
-    def obter_noticiais(self) -> list:
+    def obter_noticias(self) -> list:
         gerenciador_de_coleta = GerenciadorColetaNoticias()
         return gerenciador_de_coleta.coletar_noticias("Intelgência Artificial Piaúi")  
         
@@ -22,17 +22,17 @@ class ProcessadorNoticiais:
         return texto
     
     def processar_noticias(self) -> list:
-        # Obtendo noticiais:
-        noticiais = self.obter_noticiais()
+        # Obtendo noticias:
+        noticias = self.obter_noticias()
 
         # Criando e populando objeto que armazenará os dados de forma pré-processada:
-        dados_noticiais_formatados = []
-        for noticia in noticiais:
+        dados_noticias_formatados = []
+        for noticia in noticias:
             titulo = self.limpar_texto(noticia.get("titulo"))
             data = noticia.get("data")[5:-4]
             link = noticia.get("link")
             fonte = self.limpar_texto(noticia.get("fonte"))
-            dados_noticiais_formatados.append({
+            dados_noticias_formatados.append({
                 "titulo": titulo,
                 "data": data,
                 "link": link,
@@ -41,12 +41,12 @@ class ProcessadorNoticiais:
 
         # Carregando lexico e classificando os titulos:
         lexico = self.carregar_lexico()
-        for noticia in dados_noticiais_formatados:
+        for noticia in dados_noticias_formatados:
             titulo_comparado = noticia.get("titulo")
             classificacao = self.classificar_titulo_noticia(titulo_comparado, lexico)
-            noticia["classificacao"] = classificacao
+            noticia["classificacao_sentimento"] = classificacao
 
-        return dados_noticiais_formatados
+        return dados_noticias_formatados
         
     def carregar_lexico(self) -> dict:
         """
@@ -82,14 +82,14 @@ class ProcessadorNoticiais:
         else:
             return "neutro"
         
-    def obter_df_noticiais(self) -> object:
+    def obter_df_noticias(self) -> object:
         """
-        Função que obtém a lista de noticiais classificadas e estrutura um data frame a partir desses dados:
+        Função que obtém a lista de noticias classificadas e estrutura um data frame a partir desses dados:
         """
-        dados_noticiais_classificadas = self.processar_noticias()
+        dados_noticias_classificadas = self.processar_noticias()
         data_frame = pd.DataFrame(
-            data=dados_noticiais_classificadas,                       
-            columns=["titulo", "data", "link", "fonte", "classificacao"])
+            data=dados_noticias_classificadas,                       
+            columns=["titulo", "data", "link", "fonte", "classificacao_sentimento"])
         
         return data_frame
 

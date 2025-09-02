@@ -4,12 +4,12 @@ from bs4 import BeautifulSoup
 
 class GerenciadorColetaNoticias:
     """
-    Objeto responsável pela busca e gerenciamento das noticiais.s
+    Objeto responsável pela busca e gerenciamento das noticias:
     """
 
     def coletar_noticias(self, pesquisa) -> list:
         """
-        Função responsável por realizar a requisição no serviço do Google e coletar as noticiais.
+        Função responsável por realizar a requisição no serviço do Google e coletar as noticias.
         """
 
         try:
@@ -23,7 +23,7 @@ class GerenciadorColetaNoticias:
             root = ET.fromstring(resposta.content)
             noticias = []
 
-            # Obtendo os dados das noticiais:
+            # Obtendo os dados das noticias:
             for item in root.findall(".//item"):
                 titulo = item.find("title").text
                 link = item.find("link").text
@@ -39,7 +39,7 @@ class GerenciadorColetaNoticias:
             # retornando número limitado de notícias:
             return noticias[:15]
         except Exception as e:
-            raise ValueError(f"Erro ao coletar as noticiais -> {e}")
+            raise ValueError(f"Erro ao coletar as noticias -> {e}")
     
     def extrair_fonte(self, descricao_html: str) -> str:
         """
