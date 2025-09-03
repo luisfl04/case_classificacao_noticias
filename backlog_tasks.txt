@@ -23,7 +23,11 @@
     3.5 -> Gráfico com dados apenas de noticias positivas -> Ok
 
 4 -> Refinamento das implementações -> 
-    4   .1-> Implementar try/except em todas as funções  -> 
+    4.1-> Implementar try/except em todas as funções  -> 
+
+5 -> Documentação -> 
+    5.1 -> Readme -> 
+    5.2 -Decisions -> 
 
 
      
