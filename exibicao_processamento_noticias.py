@@ -24,13 +24,12 @@ class ExibicaoProcessamentoNoticias:
         data_frame_noticias = pd.read_csv("classificacao_sentimentos_noticias.csv")
         
         # configs básicas do dashboard:
-        st.title("Dashboard - Classificação de sentimentos de noticias")
+        st.title("Dashboard - Classificação de 'sentimento' de noticias")
 
-        # ****** Tabela com os dados classificados ********
+        # ****** Tabela com os dados classificados ******** 
         st.text("Tabela com as noticias classificadas", width=500)
         st.dataframe(data_frame_noticias)
         
-
         # ***** Gráfico de Pizza ******
 
         # Criando gráfico de pizza com a partir da contagem das classificações de sentimento:
