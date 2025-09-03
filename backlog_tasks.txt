@@ -25,9 +25,12 @@
 
 4 -> Refinamento das implementações -> 
     4.1-> Implementar try/except em todas as funções  -> Ok
+    4.2 -> Tela inicial interativa com escolha do tema da pesquisa -> OK
 
 5 -> Documentação -> 
     5.1 -> Readme -> 
+        5.1.1 -> Incluir diagrama dos módulos da aplicação -> 
+        
     5.2 -Decisions ->
      
 

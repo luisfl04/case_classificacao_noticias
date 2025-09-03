@@ -17,7 +17,7 @@ class DashBoardClassificacaoNoticias:
             if tema_escolhido != "":
                 st.success(f"✅ Tema selecionado: **{tema_escolhido}**")
                 exibicao_dashboard = ExibicaoProcessamentoNoticias()
-                exibicao_dashboard.exibir_dados(tema_escolhido)
+                exibicao_dashboard.exibir_dados_analisados(tema_escolhido)
             else:
                 st.warning("⚠️ Escolha um tema acima para carregar o dashboard.")
         except Exception as e:

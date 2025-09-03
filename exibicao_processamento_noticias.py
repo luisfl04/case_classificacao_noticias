@@ -15,8 +15,7 @@ class ExibicaoProcessamentoNoticias:
     Módulo que obtém o data frame dos dados já classificados e cria as visualizações
     """ 
 
-    def exibir_dados(self, pesquisa):
-        
+    def exibir_dados_analisados(self, pesquisa):
         try:
             # Obtendo data Frame:
             processador_noticias = ProcessadorNoticias()
