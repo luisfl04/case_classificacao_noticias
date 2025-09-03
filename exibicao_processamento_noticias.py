@@ -27,9 +27,11 @@ class ExibicaoProcessamentoNoticias:
         
         # configs básicas do dashboard:
         st.title("Dashboard - Classificação de 'sentimento' de noticias")
+        st.markdown("<div style='margin-top: 30px;'></div>", unsafe_allow_html=True)
 
         # ****** Tabela com os dados classificados ******** 
         st.header("Análise de classificação das notícias")
+        st.markdown("<div style='margin-top: 15px;'></div>", unsafe_allow_html=True)
 
         # Métricas gerais:
         st.subheader("Métricas gerais observadas:")
@@ -40,10 +42,12 @@ class ExibicaoProcessamentoNoticias:
         # Pesquisa Feita:
         st.subheader("Tema Pesquisado")
         st.text("Inteligência Artificial Piauí")
+        st.markdown("<div style='margin-top: 20px;'></div>", unsafe_allow_html=True)
 
         # Tabela oriúnda dos dados processados:
         st.subheader("Tabela Interativa obtida do processamento")
         st.dataframe(data_frame_noticias)
+        st.markdown("<div style='margin-top: 20px;'></div>", unsafe_allow_html=True)
         
 
         # ***** Gráfico de Pizza ******
@@ -53,6 +57,7 @@ class ExibicaoProcessamentoNoticias:
         contagem_sentimentos = data_frame_noticias["classificacao_sentimento"].value_counts()
         fig = px.pie(contagem_sentimentos, names=contagem_sentimentos.index, values=contagem_sentimentos.values)
         st.plotly_chart(fig, use_container_width=True)
+        st.markdown("<div style='margin-top: 20px;'></div>", unsafe_allow_html=True)
 
 
         # ****** Nuvem de Palavras ******
@@ -77,6 +82,7 @@ class ExibicaoProcessamentoNoticias:
         axes_nuvem_palavras.axis("off")
         st.header("Termos mais frequentes")
         st.pyplot(figura_nuvem_palavras)
+        st.markdown("<div style='margin-top: 20px;'></div>", unsafe_allow_html=True)
 
         
         # ***** Gráfico exibindo dados apenas das noticias classificadas como positivas ***********
@@ -87,6 +93,7 @@ class ExibicaoProcessamentoNoticias:
         axes_scatter_plot.set_xlabel("Fonte da notícia")
         axes_scatter_plot.set_ylabel("Data em que foi publicada")
         st.pyplot(figura_scatter_plot)
+        st.markdown("<div style='margin-top: 30px;'></div>", unsafe_allow_html=True)
 
 
         # Rodapé da página:        
