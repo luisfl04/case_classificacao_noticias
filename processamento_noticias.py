@@ -8,10 +8,10 @@ class ProcessadorNoticias:
     Módulo relacionado a manipulação e processamento das noticias obtidas.
     """
 
-    def obter_noticias(self) -> list:
+    def obter_noticias(self, pesquisa) -> list:
         try:
             gerenciador_de_coleta = GerenciadorColetaNoticias()
-            return gerenciador_de_coleta.coletar_noticias("Intelgência Artificial Piaúi")  
+            return gerenciador_de_coleta.coletar_noticias(pesquisa)  
         except Exception as e:
             raise Exception(f"Não foi possível coletar as notícias -> {e}")
 
@@ -32,11 +32,11 @@ class ProcessadorNoticias:
             raise Exception(f"Erro ao limpar conteúdo de texto -> {e}")
 
 
-    def processar_noticias(self) -> list:
+    def processar_noticias(self, pesquisa) -> list:
         
         try:
             # Obtendo noticias:
-            noticias = self.obter_noticias()
+            noticias = self.obter_noticias(pesquisa)
             
             # Criando e populando objeto que armazenará os dados de forma pré-processada:
             dados_noticias_formatados = []
@@ -107,14 +107,14 @@ class ProcessadorNoticias:
             raise Exception(f"Ao tentar classificar as palavras do título '{titulo}', ocorreu um erro -> {e}")
 
 
-    def obter_df_noticias(self) -> object:
+    def obter_df_noticias(self, pesquisa) -> object:
         """
         Função que obtém a lista de noticias classificadas e estrutura um data frame a partir desses dados, 
         além de chamar a função responsável por criar o arquivo excel a partir destes mesmos dados.
         """
         
         try:
-            dados_noticias_classificadas = self.processar_noticias()
+            dados_noticias_classificadas = self.processar_noticias(pesquisa)
             data_frame = pd.DataFrame(
                 data=dados_noticias_classificadas,                       
                 columns=["titulo", "data_publicacao", "link", "fonte", "classificacao_sentimento"])

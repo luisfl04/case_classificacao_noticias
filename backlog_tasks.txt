@@ -21,13 +21,15 @@
     3.3 -> Exibir tabela com os dados classificados -> OK 
     3.4 -> Refinamento visualização dashboard -> Ok
     3.5 -> Gráfico com dados apenas de noticias positivas -> Ok
+    3.6 -> Incluir campo 'Informações sobre a análise' no dashboard, explicando
 
 4 -> Refinamento das implementações -> 
-    4.1-> Implementar try/except em todas as funções  -> 
+    4.1-> Implementar try/except em todas as funções  -> Ok
 
 5 -> Documentação -> 
     5.1 -> Readme -> 
-    5.2 -Decisions -> 
+    5.2 -Decisions ->
+     
 
 
      

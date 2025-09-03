@@ -9,20 +9,18 @@ import plotly.express as px
 import seaborn as sns
 
 
-
-
 class ExibicaoProcessamentoNoticias:
     
     """
     Módulo que obtém o data frame dos dados já classificados e cria as visualizações
     """ 
 
-    def exibir_dados(self):
+    def exibir_dados(self, pesquisa):
         
         try:
             # Obtendo data Frame:
             processador_noticias = ProcessadorNoticias()
-            data_frame_noticias = processador_noticias.obter_df_noticias()
+            data_frame_noticias = processador_noticias.obter_df_noticias(pesquisa)
             
             # configs básicas do dashboard:
             st.title("Dashboard - Classificação de 'sentimento' de noticias")
@@ -117,11 +115,10 @@ class ExibicaoProcessamentoNoticias:
                 """,
                 unsafe_allow_html=True
             )
+
+            # Aviso sobre uso de modelos de IA:
+            st.markdown("<div style='margin-top: 30px;'></div>", unsafe_allow_html=True)
+            st.warning("⚠️ Não utilizamos modelos de IA na análise, apenas bases de dados com palavras já rotuladas.")
         except Exception as e:
             st.error(f"Erro ao renderizar o dashboard -> {e}")
 
-
-
-if __name__ == "__main__":
-    exibicao = ExibicaoProcessamentoNoticias()
-    exibicao.exibir_dados()
