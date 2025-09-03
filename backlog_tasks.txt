@@ -19,8 +19,12 @@
         3.2.2 -> Iterar sobre os valores do títulos e obter as frequências -> OK
         3.2.3 -> Exibir nuvem de palavras de forma simples -> OK
     3.3 -> Exibir tabela com os dados classificados -> OK 
+    3.4 -> Refinamento visualização dashboard -> 
+
 
 x -> Refinamento das implementações -> 
     x.1-> Implementar try/except em todas as funções
+    x.2 -> Implementar visualização de um novo gráfico -> 
+
 
      

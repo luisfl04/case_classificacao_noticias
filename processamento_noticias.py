@@ -29,12 +29,12 @@ class ProcessadorNoticias:
         dados_noticias_formatados = []
         for noticia in noticias:
             titulo = self.limpar_texto(noticia.get("titulo"))
-            data = noticia.get("data")[5:-4]
+            data = noticia.get("data_publicacao")[5:-4]
             link = noticia.get("link")
             fonte = self.limpar_texto(noticia.get("fonte"))
             dados_noticias_formatados.append({
                 "titulo": titulo,
-                "data": data,
+                "data_publicacao": data,
                 "link": link,
                 "fonte": fonte
             })
@@ -90,7 +90,7 @@ class ProcessadorNoticias:
         dados_noticias_classificadas = self.processar_noticias()
         data_frame = pd.DataFrame(
             data=dados_noticias_classificadas,                       
-            columns=["titulo", "data", "link", "fonte", "classificacao_sentimento"])
+            columns=["titulo", "data_publicacao", "link", "fonte", "classificacao_sentimento"])
 
         self.criar_arquivo_csv(data_frame)
         return data_frame

@@ -32,7 +32,7 @@ class GerenciadorColetaNoticias:
                 noticias.append({
                     "titulo": titulo,
                     "link": link,
-                    "data": data,
+                    "data_publicacao": data,
                     "fonte": fonte,
                 })
 
