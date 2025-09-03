@@ -93,5 +93,11 @@ class ProcessadorNoticias:
         
         return data_frame
 
+    def criar_arquivo_csv(self, data_frame):
+        """
+        Cria um arquivo csv a partir dos dados do data frame processados
+        """
+        data_frame.to_csv("classificacao_sentimentos_noticias.csv", sep=",", index=False, encoding="utf-8")
+
 
 
