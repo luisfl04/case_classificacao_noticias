@@ -1,4 +1,4 @@
-from dashboard.processamento_noticias import ProcessadorNoticias
+from .processamento_noticias import ProcessadorNoticias
 import streamlit as st
 import matplotlib.pyplot as plt
 from collections import Counter
