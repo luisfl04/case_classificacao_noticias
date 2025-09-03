@@ -15,17 +15,14 @@ class ExibicaoProcessamentoNoticias:
         # Obtendo data Frame:
         processador_noticias = ProcessadorNoticias()
         data_frame_noticias = processador_noticias.obter_df_noticias()
+        
+        st.title("Dashboard - Análise de Sentimento de Notíciais")
 
-        processador_noticias.criar_arquivo_csv(data_frame_noticias)
-
-
-        # st.title("Dashboard - Análise de Sentimento de Notíciais")
-
-        # # Criando gráfico de pizza com a partir da contagem das classificações de sentimento:
-        # contagem_sentimentos = data_frame_noticias["classificacao_sentimento"].value_counts()
-        # grafico_pizza, ax = plt.subplots()
-        # ax.pie(contagem_sentimentos, labels=["neutro", "positivo", "negativo"], autopct="%1.1f%%", startangle=90)
-        # ax.axis("equal")
+        # Criando gráfico de pizza com a partir da contagem das classificações de sentimento:
+        contagem_sentimentos = data_frame_noticias["classificacao_sentimento"].value_counts()
+        grafico_pizza, ax = plt.subplots()
+        ax.pie(contagem_sentimentos.values, labels=contagem_sentimentos.index, autopct="%1.1f%%", startangle=90)
+        ax.axis("equal")
 
         # # Obtendo uma lista com os titulos das noticias e fazendo o processamento para contar as mais frequentes:
         # lista_titulos_noticias = data_frame_noticias["titulo"].astype(str).tolist()
@@ -38,7 +35,7 @@ class ExibicaoProcessamentoNoticias:
         # for titulo in titulos_noticias:
         #     titulo.mode()
                     
-        # st.pyplot(grafico_pizza)
+        st.pyplot(grafico_pizza)
     
 
 

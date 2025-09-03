@@ -9,11 +9,11 @@
         2.3.1 -> Criar regras de classificação das notíciais -> Ok
         2.3.2 -> Implementar lógica de classificação das notíciais -> Ok 
         2.3.3 -> Criar função que constrói um data frame a partir dos dados classificados -> Ok
-    2.4 -> Criação de arquivo CSV a partir dos dados processados -> 
+    2.4 -> Criação de arquivo CSV a partir dos dados processados -> Ok
 
 3 - Visualização do dashboard -> 
     3.1 -> Criar função que obtém o data frame e implementa um gráfico de pizza a partir da frequencia
-    dos valores de classificação -> Ok
+    dos valores de classificação -> 
     3.2 -> Implementar nuvem de palavras com os termos mais frequentes nas noticias ->
         3.2.1 -> Obter objeto apenas com os valores dos titulos ->  Ok
         3.2.2 -> Iterar sobre os valores do títulos e obter as frequências -> 

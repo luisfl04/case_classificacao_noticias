@@ -45,7 +45,7 @@ class ProcessadorNoticias:
             titulo_comparado = noticia.get("titulo")
             classificacao = self.classificar_titulo_noticia(titulo_comparado, lexico)
             noticia["classificacao_sentimento"] = classificacao
-
+        
         return dados_noticias_formatados
         
     def carregar_lexico(self) -> dict:
@@ -84,13 +84,15 @@ class ProcessadorNoticias:
         
     def obter_df_noticias(self) -> object:
         """
-        Função que obtém a lista de noticias classificadas e estrutura um data frame a partir desses dados:
+        Função que obtém a lista de noticias classificadas e estrutura um data frame a partir desses dados, 
+        além de chamar a função responsável por criar o arquivo excel a partir destes mesmos dados.
         """
         dados_noticias_classificadas = self.processar_noticias()
         data_frame = pd.DataFrame(
             data=dados_noticias_classificadas,                       
             columns=["titulo", "data", "link", "fonte", "classificacao_sentimento"])
-        
+
+        self.criar_arquivo_csv(data_frame)
         return data_frame
 
     def criar_arquivo_csv(self, data_frame):
