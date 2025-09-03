@@ -4,7 +4,6 @@ pandas
 streamlit
 matplotlib
 nltk
-collection
 wordcloud
 plotly
 seaborn

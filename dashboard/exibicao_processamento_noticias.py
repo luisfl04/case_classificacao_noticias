@@ -1,4 +1,4 @@
-from processamento_noticias import ProcessadorNoticias
+from dashboard.processamento_noticias import ProcessadorNoticias
 import streamlit as st
 import matplotlib.pyplot as plt
 from collections import Counter
@@ -66,14 +66,15 @@ class ExibicaoProcessamentoNoticias:
             
             # Obtendo palavras filtradas:
             lista_palavras_filtradas = [palavra for palavra in lista_palavras if palavra not in palavras_removiveis]
-            contagem_frequencia_palavras = Counter(lista_palavras_filtradas)
+            contagem_frequencia_palavras = Counter(lista_palavras_filtradas).most_common(15)
 
             # Exibindo nuvem de palavras:
             nuvem_palavras = WordCloud(width=800, height=400, background_color="white", colormap="plasma").generate_from_frequencies(contagem_frequencia_palavras)
             figura_nuvem_palavras, axes_nuvem_palavras = plt.subplots(figsize=(10, 5))
             axes_nuvem_palavras.imshow(nuvem_palavras, interpolation="bilinear")
             axes_nuvem_palavras.axis("off")
-            st.header("Termos mais frequentes")
+            print("imagem configurada")
+            st.header("Termos mais frequentes") 
             st.pyplot(figura_nuvem_palavras)
             st.markdown("<div style='margin-top: 20px;'></div>", unsafe_allow_html=True)
 

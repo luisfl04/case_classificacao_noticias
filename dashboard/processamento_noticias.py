@@ -1,4 +1,4 @@
-from coletagem_noticias import GerenciadorColetaNoticias
+from dashboard.coletagem_noticias import GerenciadorColetaNoticias
 import re
 import pandas as pd
 
