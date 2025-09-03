@@ -22,13 +22,10 @@ class ExibicaoProcessamentoNoticias:
             data_frame_noticias = processador_noticias.obter_df_noticias(pesquisa)
             
             # configs básicas do dashboard:
-            st.title("Dashboard - Classificação de 'sentimento' de noticias")
+            st.title("Classificação de 'sentimento' de noticias")
             st.markdown("<div style='margin-top: 30px;'></div>", unsafe_allow_html=True)
 
-            # ****** Tabela com os dados classificados ******** 
-            st.header("Análise de classificação das notícias")
-            st.markdown("<div style='margin-top: 15px;'></div>", unsafe_allow_html=True)
-
+            # ****** Tabela com os dados classificados *******
             # Métricas gerais:
             st.subheader("Métricas gerais observadas:")
             coluna_total_noticias, coluna_classificacao_frequente = st.columns(2)
@@ -37,7 +34,7 @@ class ExibicaoProcessamentoNoticias:
 
             # Pesquisa Feita:
             st.subheader("Tema Pesquisado")
-            st.text("Inteligência Artificial Piauí")
+            st.text(f"{pesquisa}")
             st.markdown("<div style='margin-top: 20px;'></div>", unsafe_allow_html=True)
 
             # Tabela oriúnda dos dados processados:
