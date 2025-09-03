@@ -1,8 +1,12 @@
 from processamento_noticias import ProcessadorNoticias
 import streamlit as st
 import matplotlib.pyplot as plt
-import pandas as pd
 from collections import Counter
+import nltk
+from nltk.corpus import stopwords
+
+
+
 
 
 class ExibicaoProcessamentoNoticias:
@@ -18,24 +22,38 @@ class ExibicaoProcessamentoNoticias:
         
         st.title("Dashboard - Análise de Sentimento de Notíciais")
 
+        # ***** Gráfico de Pizza ******
+
         # Criando gráfico de pizza com a partir da contagem das classificações de sentimento:
         contagem_sentimentos = data_frame_noticias["classificacao_sentimento"].value_counts()
         grafico_pizza, ax = plt.subplots()
         ax.pie(contagem_sentimentos.values, labels=contagem_sentimentos.index, autopct="%1.1f%%", startangle=90)
         ax.axis("equal")
 
-        # # Obtendo uma lista com os titulos das noticias e fazendo o processamento para contar as mais frequentes:
-        # lista_titulos_noticias = data_frame_noticias["titulo"].astype(str).tolist()
-        # lista_unificada = " ".join(lista_titulos_noticias)
-        # lista_palavras = lista_unificada.lower().split()
-        # contagem_frequencia_palavras = Counter(lista_palavras)
-        # frequencia_limpa = contagem_frequencia_palavras.pop("em")
-        # print(frequencia_limpa)
 
-        # for titulo in titulos_noticias:
-        #     titulo.mode()
-                    
-        st.pyplot(grafico_pizza)
+        # ****** Nuvem de Palavras ******
+
+        # Obtendo uma lista de palavras a partir dos titulos das noticias:
+        lista_titulos_noticias = data_frame_noticias["titulo"].astype(str).tolist()
+        lista_unificada = " ".join(lista_titulos_noticias)
+        lista_palavras = lista_unificada.lower().split()
+        
+        # Buscando palavras removíveis a partir de um conjunto baixado, que podem estar na lista de palavras, como pronomes:
+        nltk.download("stopwords")
+        palavras_removiveis = set(stopwords.words("portuguese"))
+        
+        # Obtendo palavras filtradas:
+        lista_palavras_filtradas = [palavra for palavra in lista_palavras if palavra not in palavras_removiveis]
+        contagem_frequencia_palavras = Counter(lista_palavras_filtradas)
+        palavras_mais_comuns = contagem_frequencia_palavras.most_common(10)
+
+        # Exibindo nuvem de palavras:
+        wordcloud = WordCloud(width=800, height=400, background_color="white").generate_from_frequencies(frequencias)
+
+
+
+                            
+        # st.pyplot(grafico_pizza)
     
 
 
