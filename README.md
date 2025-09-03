@@ -22,7 +22,7 @@ Este projeto realiza a **classificação sentimental de notícias** a partir dos
 ```
 - Requisitos -> Ter python >= 3.10.12 e git em sua máquina
 
-- Navegue até seu repositório de escolha em sua máquina
+- Navegue até seu repositório de sua escolha
 
 - Use -> git clone https://github.com/luisfl04/case_classificacao_noticias.git para clonagem via https
 
@@ -34,10 +34,12 @@ Este projeto realiza a **classificação sentimental de notícias** a partir dos
 
 - Execute a aplicação -> streamlit run main.py
 
+- Visualize o dashboard em seu navegador
+
 ```
 
 ## Como as noticias são classificadas?
-A partir da busca feita no serviço RSS do google, a aplicação salva informações como: link, data de publicação, fonte e link das noticias. Após obter esses dados, os mesmos são pré-processados com remoção de caracteres especiais e formatação de texto. Com os dados limpos, é feita a busca de cada palavra no léxico armazenado no repositório('/lexico/sentiLex-flex-pt03.txt'), esse léxico possúi palavras já classificadas quanto a polaridade. Com isso, é feita a soma obtida das comparações de cada titulo em relação ao léxico e de acordo com o resultado final a noticia é classificada(positiva, negativa, neutra).
+A partir da busca feita no serviço RSS do google, a aplicação salva informações como: titulo, data de publicação, fonte e link das noticias. Após obter esses dados, os mesmos são pré-processados com remoção de caracteres especiais e formatação de texto. Com os dados limpos, é feita a busca de cada palavra no léxico armazenado no repositório('/lexico/sentiLex-flex-pt03.txt'), esse léxico possúi palavras já classificadas quanto a polaridade. Com isso, é feita a soma obtida das comparações de cada titulo em relação ao léxico e de acordo com o resultado final a noticia é classificada(positiva, negativa, neutra).
 
 ### Abaixo segue um esboço de como os módulos estão estruturados:
 ![imagem_estrutura_modulos](assets/fluxo_case_ia.png)
