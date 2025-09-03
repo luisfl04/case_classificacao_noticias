@@ -13,6 +13,9 @@ class GerenciadorColetaNoticias:
         """
 
         try:
+            if pesquisa is None:
+                raise Exception("Um valor para o campo de pesquisa é obrigatório!")
+
             # Montando e fazendo requisição:
             url_requisicao = f"https://news.google.com/rss/search?q={pesquisa}&hl=pt-BR&gl=BR&ceid=BR:pt-419"
             resposta = requests.get(url_requisicao)
@@ -39,13 +42,15 @@ class GerenciadorColetaNoticias:
             # retornando número limitado de notícias:
             return noticias[:15]
         except Exception as e:
-            raise ValueError(f"Erro ao coletar as noticias -> {e}")
+            raise Exception(f"Erro ao coletar as noticias -> {e}")
     
     def extrair_fonte(self, descricao_html: str) -> str:
         """
         Extrai o campo '<font>' a partir do campo '<description>' obtido na notícia.
         """
-            
-        arvore_elementos_hmtl = BeautifulSoup(descricao_html, "html.parser")
-        fonte = arvore_elementos_hmtl.find("font") 
-        return fonte.get_text(strip=True) if fonte else ""
+        try:    
+            arvore_elementos_hmtl = BeautifulSoup(descricao_html, "html.parser")
+            fonte = arvore_elementos_hmtl.find("font") 
+            return fonte.get_text(strip=True) if fonte else ""  
+        except Exception as e:
+            raise Exception(f"Ocorreu um erro ao obter afonte da notícia -> {e}")
