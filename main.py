@@ -1,4 +1,4 @@
-from dashboard.dashboard.exibicao_processamento_noticias import ExibicaoProcessamentoNoticias
+from dashboard.exibicao_processamento_noticias import ExibicaoProcessamentoNoticias
 import streamlit as st
 
 
